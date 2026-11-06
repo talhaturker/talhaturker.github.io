@@ -10,6 +10,7 @@
     <style>
         html, body { margin: 0; height: 100%; background: #0D1320; overflow: hidden; }
         #loading { position: fixed; inset: 0; display: grid; place-items: center; }
+        #busy { display: none; color: #C9D3E6; font: 15px/1.5 system-ui, sans-serif; text-align: center; padding: 0 24px; }
     </style>
 </head>
 <body>
@@ -21,6 +22,26 @@
         </circle>
     </svg>
 </div>
-<script type="application/javascript" src="paranoma.js"></script>
+<p id="busy">Paranoma başka bir sekmede açık.<br>O sekmeyi kapatınca burada kendiliğinden açılır.</p>
+<script>
+    // Tarayıcı veritabanını (OPFS) aynı anda yalnız bir sekme açabilir; ikinci sekme boş, geçici bir veritabanına
+    // düşmesin diye kilit alınır. Kilit başka sekmedeyse o kapanana kadar beklenir; sayfa açık kaldıkça kilit tutulur.
+    function start() {
+        const script = document.createElement('script');
+        script.src = 'paranoma.js';
+        document.body.appendChild(script);
+    }
+    if (navigator.locks) {
+        const busy = setTimeout(() => { document.getElementById('busy').style.display = 'block'; }, 1500);
+        navigator.locks.request('paranoma-db', () => {
+            clearTimeout(busy);
+            document.getElementById('busy').style.display = 'none';
+            start();
+            return new Promise(() => {});
+        });
+    } else {
+        start();
+    }
+</script>
 </body>
 </html>
