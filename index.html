@@ -1,23 +1,118 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DEAD ODDS</title>
-<link rel="stylesheet" href="style.css">
+<title>Orbeka Games</title>
+<meta name="description" content="Orbeka Games, an indie studio making mobile games and apps. Bağımsız oyun ve uygulama stüdyosu.">
+<meta property="og:title" content="Orbeka Games">
+<meta property="og:description" content="Indie games & apps. Bağımsız oyun stüdyosu.">
+<meta property="og:image" content="https://talhaturker.github.io/img/hero.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#141418">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
+
+<header class="hero">
+  <!-- Animated orbit: a comet circling an elliptical orbit (drawn by home.js) -->
+  <svg class="orbit" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="neb1" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#ff5a45" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#ff5a45" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="neb2" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#7a2a20" stop-opacity=".35"/>
+        <stop offset="1" stop-color="#7a2a20" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="head" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#fff4ee"/>
+        <stop offset=".35" stop-color="#ffb199"/>
+        <stop offset="1" stop-color="#ff5a45" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <ellipse cx="1420" cy="560" rx="380" ry="200" fill="url(#neb2)"/>
+    <ellipse cx="1250" cy="120" rx="320" ry="160" fill="url(#neb1)"/>
+    <g id="stars"></g>
+    <g transform="rotate(-16 1180 300)">
+      <ellipse id="orbitPath" cx="1180" cy="300" rx="360" ry="165" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.6"/>
+      <g id="trail" filter="url(#glow)"></g>
+      <circle id="comet" r="22" fill="url(#head)" filter="url(#glow)"/>
+    </g>
+  </svg>
+
+  <div class="hero-in">
+    <img class="logo" src="img/logo.png" alt="Orbeka Games" width="720" height="177">
+    <p class="tag">Indie games &amp; apps</p>
+    <p class="tag tr">Bağımsız oyun ve uygulama stüdyosu</p>
+    <nav class="social" aria-label="Social">
+      <a href="https://www.instagram.com/orbekagames/">Instagram</a>
+      <a href="https://www.tiktok.com/@orbekagames">TikTok</a>
+      <a href="https://x.com/orbekagames">X</a>
+      <a href="https://www.facebook.com/profile.php?id=61596788913314">Facebook</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-<h1>DEAD ODDS</h1>
-<p class="muted">NO HEALTH BAR. JUST ODDS.</p>
-<div class="card">
-<p>DEAD ODDS, izometrik bir zombi hayatta kalma oyunudur. Can barı yok: her temasta zar atılır.</p>
-<p>DEAD ODDS is an isometric zombie survival game. No health bar: every touch is a roll of the dice.</p>
-</div>
-<nav>
-<a href="privacy.html">Gizlilik Politikası / Privacy Policy</a>
-<a href="terms.html">Kullanım Şartları / Terms of Use</a>
-</nav>
+  <h2 class="sec">Our games <span>Oyunlarımız</span></h2>
+
+  <!-- One <article class="app"> per app. Gallery: video first, then screenshots. -->
+  <article class="app">
+    <div class="app-head">
+      <img class="app-icon" src="img/deadodds_icon.png" alt="" width="72" height="72">
+      <div class="app-title">
+        <h3>DEAD ODDS</h3>
+        <p class="muted">No health bar. Just odds.</p>
+      </div>
+      <div class="stores">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.orbeka.deadodds">Google Play</a>
+        <a class="btn" href="https://apps.apple.com/app/id6826535636">App Store</a>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <button class="nav prev" type="button" aria-label="Previous">‹</button>
+      <div class="shots" tabindex="0">
+        <video class="shot" src="img/deadodds/gameplay.mp4" poster="img/deadodds/gameplay_poster.jpg"
+               autoplay muted loop playsinline preload="metadata" aria-label="DEAD ODDS gameplay"></video>
+        <img class="shot" src="img/deadodds/ss1.webp" alt="City" loading="lazy" width="444" height="888">
+        <img class="shot" src="img/deadodds/ss2.webp" alt="Hospital" loading="lazy" width="444" height="888">
+        <img class="shot" src="img/deadodds/ss3.webp" alt="Weapons" loading="lazy" width="444" height="888">
+        <img class="shot" src="img/deadodds/ss4.webp" alt="Boss" loading="lazy" width="444" height="888">
+        <img class="shot" src="img/deadodds/ss5.webp" alt="Blood moon" loading="lazy" width="444" height="888">
+        <img class="shot" src="img/deadodds/ss6.webp" alt="Forest" loading="lazy" width="444" height="888">
+      </div>
+      <button class="nav next" type="button" aria-label="Next">›</button>
+    </div>
+
+    <p>An isometric zombie survival game. No health bar: every hit is a roll of the dice.</p>
+    <p class="tr">İzometrik bir zombi hayatta kalma oyunu. Can barı yok: her temasta zar atılır.</p>
+    <p class="legal"><a href="privacy.html">Privacy / Gizlilik</a> · <a href="terms.html">Terms / Şartlar</a></p>
+  </article>
+
+  <p class="soon">More coming soon · Yenileri yolda</p>
 </main>
+
+<footer>
+  <details>
+    <summary>Privacy &amp; legal · Gizlilik ve şartlar</summary>
+    <ul>
+      <li>DEAD ODDS: <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></li>
+      <li>Gemloft: <a href="gemloft/privacy.html">Privacy</a> · <a href="gemloft/terms.html">Terms</a></li>
+      <li>Gezelim: <a href="gezelim/privacy.html">Gizlilik</a> · <a href="gezelim/hesap-sil.html">Hesap silme</a></li>
+    </ul>
+  </details>
+  <p class="muted">© 2026 Orbeka Games</p>
+</footer>
+
+<script src="home.js"></script>
 </body>
 </html>
