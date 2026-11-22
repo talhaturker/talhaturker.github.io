@@ -4,17 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orbeka Games</title>
-<meta name="description" content="Orbeka Games, an indie studio making mobile games and apps. Bağımsız oyun ve uygulama stüdyosu.">
+<meta name="description" content="Orbeka Games, an indie studio making mobile games and apps.">
 <meta property="og:title" content="Orbeka Games">
-<meta property="og:description" content="Indie games & apps. Bağımsız oyun stüdyosu.">
+<meta property="og:description" content="Indie studio making mobile games and apps.">
 <meta property="og:image" content="https://talhaturker.github.io/img/hero.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#141418">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="home.css">
+<script>(function(){var l;try{l=localStorage.getItem("lang")}catch(e){}if(l!=="en"&&l!=="tr"){l=/^tr/i.test(navigator.language||"")?"tr":"en"}document.documentElement.lang=l})();</script>
 </head>
 <body>
+
+<div class="langs" role="group" aria-label="Language">
+  <button type="button" data-set-lang="en">EN</button>
+  <button type="button" data-set-lang="tr">TR</button>
+</div>
 
 <header class="hero">
   <!-- Animated orbit: a comet circling an elliptical orbit (drawn by home.js) -->
@@ -50,8 +56,7 @@
 
   <div class="hero-in">
     <img class="logo" src="img/logo.png" alt="Orbeka Games" width="720" height="177">
-    <p class="tag">Indie games &amp; apps</p>
-    <p class="tag tr">Bağımsız oyun ve uygulama stüdyosu</p>
+    <p class="tag" data-i18n="tag">Indie studio making games &amp; apps</p>
     <nav class="social" aria-label="Social">
       <a href="https://www.instagram.com/orbekagames/">Instagram</a>
       <a href="https://www.tiktok.com/@orbekagames">TikTok</a>
@@ -62,7 +67,7 @@
 </header>
 
 <main>
-  <h2 class="sec">Our games <span>Oyunlarımız</span></h2>
+  <h2 class="sec" data-i18n="games">Our games</h2>
 
   <!-- One <article class="app"> per app. Gallery: video first, then screenshots. -->
   <article class="app">
@@ -70,7 +75,7 @@
       <img class="app-icon" src="img/deadodds_icon.png" alt="" width="72" height="72">
       <div class="app-title">
         <h3>DEAD ODDS</h3>
-        <p class="muted">No health bar. Just odds.</p>
+        <p class="muted" data-i18n="do_tag">No health bar. Just odds.</p>
       </div>
       <div class="stores">
         <a class="btn" href="https://play.google.com/store/apps/details?id=com.orbeka.deadodds">Google Play</a>
@@ -83,31 +88,30 @@
       <div class="shots" tabindex="0">
         <video class="shot" src="img/deadodds/gameplay.mp4" poster="img/deadodds/gameplay_poster.jpg"
                autoplay muted loop playsinline preload="metadata" aria-label="DEAD ODDS gameplay"></video>
-        <img class="shot" src="img/deadodds/ss1.webp" alt="City" loading="lazy" width="444" height="888">
-        <img class="shot" src="img/deadodds/ss2.webp" alt="Hospital" loading="lazy" width="444" height="888">
-        <img class="shot" src="img/deadodds/ss3.webp" alt="Weapons" loading="lazy" width="444" height="888">
-        <img class="shot" src="img/deadodds/ss4.webp" alt="Boss" loading="lazy" width="444" height="888">
-        <img class="shot" src="img/deadodds/ss5.webp" alt="Blood moon" loading="lazy" width="444" height="888">
-        <img class="shot" src="img/deadodds/ss6.webp" alt="Forest" loading="lazy" width="444" height="888">
+        <img class="shot" data-shot="img/deadodds/{lang}/ss1.webp" src="img/deadodds/en/ss1.webp" alt="City" loading="lazy" width="444" height="888">
+        <img class="shot" data-shot="img/deadodds/{lang}/ss2.webp" src="img/deadodds/en/ss2.webp" alt="Hospital" loading="lazy" width="444" height="888">
+        <img class="shot" data-shot="img/deadodds/{lang}/ss3.webp" src="img/deadodds/en/ss3.webp" alt="Weapons" loading="lazy" width="444" height="888">
+        <img class="shot" data-shot="img/deadodds/{lang}/ss4.webp" src="img/deadodds/en/ss4.webp" alt="Boss" loading="lazy" width="444" height="888">
+        <img class="shot" data-shot="img/deadodds/{lang}/ss5.webp" src="img/deadodds/en/ss5.webp" alt="Blood moon" loading="lazy" width="444" height="888">
+        <img class="shot" data-shot="img/deadodds/{lang}/ss6.webp" src="img/deadodds/en/ss6.webp" alt="Forest" loading="lazy" width="444" height="888">
       </div>
       <button class="nav next" type="button" aria-label="Next">›</button>
     </div>
 
-    <p>An isometric zombie survival game. No health bar: every hit is a roll of the dice.</p>
-    <p class="tr">İzometrik bir zombi hayatta kalma oyunu. Can barı yok: her temasta zar atılır.</p>
-    <p class="legal"><a href="privacy.html">Privacy / Gizlilik</a> · <a href="terms.html">Terms / Şartlar</a></p>
+    <p data-i18n="do_desc">An isometric zombie survival game. No health bar: every hit is a roll of the dice.</p>
+    <p class="legal"><a href="privacy.html" data-i18n="privacy">Privacy Policy</a> · <a href="terms.html" data-i18n="terms">Terms of Use</a></p>
   </article>
 
-  <p class="soon">More coming soon · Yenileri yolda</p>
+  <p class="soon" data-i18n="soon">More games coming soon</p>
 </main>
 
 <footer>
   <details>
-    <summary>Privacy &amp; legal · Gizlilik ve şartlar</summary>
+    <summary data-i18n="legal">Privacy &amp; legal</summary>
     <ul>
-      <li>DEAD ODDS: <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></li>
-      <li>Gemloft: <a href="gemloft/privacy.html">Privacy</a> · <a href="gemloft/terms.html">Terms</a></li>
-      <li>Gezelim: <a href="gezelim/privacy.html">Gizlilik</a> · <a href="gezelim/hesap-sil.html">Hesap silme</a></li>
+      <li>DEAD ODDS: <a href="privacy.html" data-i18n="privacy_s">Privacy</a> · <a href="terms.html" data-i18n="terms_s">Terms</a></li>
+      <li>Gemloft: <a href="gemloft/privacy.html" data-i18n="privacy_s">Privacy</a> · <a href="gemloft/terms.html" data-i18n="terms_s">Terms</a></li>
+      <li>Gezelim: <a href="gezelim/privacy.html" data-i18n="privacy_s">Privacy</a> · <a href="gezelim/hesap-sil.html" data-i18n="delete_acc">Account deletion</a></li>
     </ul>
   </details>
   <p class="muted">© 2026 Orbeka Games</p>

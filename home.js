@@ -3,6 +3,50 @@
   var NS = 'http://www.w3.org/2000/svg';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---- Language (EN / TR): default from browser, remembered in localStorage ----
+  var T = {
+    en: {
+      tag: 'Indie studio making games & apps',
+      games: 'Our games',
+      do_tag: 'No health bar. Just odds.',
+      do_desc: 'An isometric zombie survival game. No health bar: every hit is a roll of the dice.',
+      privacy: 'Privacy Policy', terms: 'Terms of Use',
+      privacy_s: 'Privacy', terms_s: 'Terms', delete_acc: 'Account deletion',
+      soon: 'More games coming soon',
+      legal: 'Privacy & legal'
+    },
+    tr: {
+      tag: 'Oyun ve uygulama geliştiren bağımsız stüdyo',
+      games: 'Oyunlarımız',
+      do_tag: 'Can barı yok. Sadece şans.',
+      do_desc: 'İzometrik bir zombi hayatta kalma oyunu. Can barı yok: her temasta zar atılır.',
+      privacy: 'Gizlilik Politikası', terms: 'Kullanım Şartları',
+      privacy_s: 'Gizlilik', terms_s: 'Şartlar', delete_acc: 'Hesap silme',
+      soon: 'Yeni oyunlar yolda',
+      legal: 'Gizlilik ve şartlar'
+    }
+  };
+  function setLang(l, persist) {
+    if (!T[l]) l = 'en';
+    document.documentElement.lang = l;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (el) {
+      var v = T[l][el.getAttribute('data-i18n')];
+      if (v) el.textContent = v;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'), function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false');
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-shot]'), function (im) {
+      im.src = im.getAttribute('data-shot').replace('{lang}', l);
+    });
+    if (persist) { try { localStorage.setItem('lang', l); } catch (e) {} }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'), function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); });
+  });
+  // <head> script already picked the language (saved choice, else browser language)
+  setLang(document.documentElement.lang === 'tr' ? 'tr' : 'en', false);
+
   // ---- Stars / dust ----
   var stars = document.getElementById('stars');
   if (stars) {

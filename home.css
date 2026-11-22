@@ -1,4 +1,6 @@
 :root {
+  --pad: clamp(16px, 4.5vw, 80px);
+  --maxw: 1680px;
   --bg: #141418;
   --card: #1c1c22;
   --line: #2a2a33;
@@ -34,8 +36,8 @@ a { color: var(--text); }
 }
 .hero-in {
   position: relative; z-index: 1;
-  width: 100%; max-width: 1040px; margin: 0 auto;
-  padding: 48px 24px;
+  width: 100%; max-width: var(--maxw); margin: 0 auto;
+  padding: 56px var(--pad);
 }
 .logo { width: min(300px, 64vw); height: auto; display: block; }
 .tag { margin: 18px 0 0; font-size: 1.25rem; font-weight: 600; }
@@ -51,9 +53,8 @@ a { color: var(--text); }
 .social a:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---------- Apps ---------- */
-main { max-width: 1040px; margin: 0 auto; padding: 8px 24px 40px; }
+main { max-width: var(--maxw); margin: 0 auto; padding: 8px var(--pad) 40px; }
 .sec { font-size: 1.4rem; margin: 0 0 18px; }
-.sec span { font-weight: 400; color: var(--muted); font-size: 1rem; margin-left: 8px; }
 
 .app {
   background: var(--card);
@@ -92,7 +93,7 @@ p.tr { color: var(--muted); font-size: .95rem; }
 .shots:focus { outline: none; }
 .shot {
   flex: 0 0 auto;
-  height: 420px; width: auto; aspect-ratio: 1 / 2;
+  height: clamp(380px, 34vw, 560px); width: auto; aspect-ratio: 1 / 2;
   object-fit: cover;
   border-radius: 12px;
   background: #0d0d10;
@@ -117,7 +118,7 @@ p.tr { color: var(--muted); font-size: .95rem; }
 .soon { text-align: center; color: var(--muted); margin: 32px 0 0; }
 
 footer {
-  max-width: 1040px; margin: 0 auto; padding: 24px;
+  max-width: var(--maxw); margin: 0 auto; padding: 24px var(--pad);
   border-top: 1px solid var(--line);
   font-size: .9rem;
 }
@@ -133,4 +134,18 @@ footer a { color: var(--muted); }
   .shot { height: 340px; }
   .nav { display: none; }
   .app { padding: 16px; }
+  .langs { top: 12px; right: 12px; }
 }
+
+/* ---------- Language switch ---------- */
+.langs {
+  position: absolute; top: 18px; right: var(--pad); z-index: 5;
+  display: flex; border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(20,20,24,.75); overflow: hidden;
+}
+.langs button {
+  border: 0; background: transparent; color: var(--muted);
+  font: 600 .8rem/1 system-ui, sans-serif; letter-spacing: .05em;
+  padding: 8px 12px; cursor: pointer;
+}
+.langs button[aria-pressed="true"] { background: var(--accent); color: #fff; }
